@@ -8,6 +8,7 @@ const SALT_ROUNDS = 10;
 
 export type AuthResponse = {
   access_token: string;
+  user: any
 };
 
 @Injectable()
@@ -30,7 +31,14 @@ export class AuthService {
     }
 
     const payload = { sub: user._id, username: user.email };
+    const userdetails = {
+        id: user._id,
+        name: user.name,
+        email: user.email
+
+    }
     return {
+      user: userdetails,
       access_token: await this.jwtService.signAsync(payload),
     };
   }

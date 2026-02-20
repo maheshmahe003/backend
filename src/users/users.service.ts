@@ -13,6 +13,7 @@ export class UsersService {
         const USERS_LIST = [
             {
                 _id: 87562,
+                name: "Mahesh Jadegowda",
                 email: "maheshmahe003@gmail.com",
                 password: await bcrypt.hash('Mahesh@123', SALT_ROUNDS)
             }
